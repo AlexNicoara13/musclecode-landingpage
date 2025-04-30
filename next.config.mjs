@@ -14,14 +14,12 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
-    domains: [], // Add domains if using external images
-    // Optional: Define remote patterns for external images
+    unoptimized: process.env.GITHUB_ACTIONS === "true",
     remotePatterns: [
-      // {
-      //   protocol: 'https',
-      //   hostname: '**.example.com',
-      // },
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
   experimental: {
@@ -60,6 +58,11 @@ const nextConfig = {
     },
     // Content Security Policy can be added here for better security
   ],
+  // Only use basePath when deploying to GitHub Pages
+  ...(process.env.GITHUB_ACTIONS === "true" && {
+    output: "export",
+    basePath: "/musclecode-landingpage",
+  }),
 };
 
 mergeConfig(nextConfig, userConfig)
