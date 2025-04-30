@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "../styles/globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { Providers } from "@/components/providers";
 import { CookieConsentBanner } from "@/components/cookie-consent";
 import { PostHogAnalytics } from "@/components/analytics";
 import {
@@ -103,7 +103,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <body className="antialiased font-montserrat">
-        <ThemeProvider
+        <Providers
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
@@ -115,7 +115,7 @@ export default function RootLayout({
           <WebsiteStructuredData />
           <OrganizationStructuredData />
           <SoftwareApplicationStructuredData />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

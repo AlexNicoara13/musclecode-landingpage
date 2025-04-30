@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @custom-variant dark (&:is(.dark *));
 
@@ -225,7 +227,6 @@
 }
 
 @keyframes gradient-x {
-
   0%,
   100% {
     background-position: 0% 50%;
