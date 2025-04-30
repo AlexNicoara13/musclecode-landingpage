@@ -7,7 +7,6 @@ import {
   LineChart,
   Sparkles,
   Users,
-  Zap,
 } from "lucide-react";
 import { FeatureCard } from "@/components/feature-card";
 import { EarlyAccessForm } from "@/components/early-access-form";
@@ -18,16 +17,23 @@ import { FAQ } from "@/components/faq";
 import { TrackedButton } from "@/components/ui/tracked-button";
 import { TrackedLink } from "@/components/ui/tracked-link";
 import { FAQStructuredData } from "@/components/structured-data";
+import Image from "next/image";
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-background font-montserrat">
       {/* Navigation - Added sticky positioning and blur effect */}
       <header className="sticky top-0 z-50 backdrop-blur-xs bg-background/90 border-b">
         <div className="container mx-auto py-4 px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <Zap className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold">MuscleCode.io</span>
+            <Image
+              src="/logo.svg"
+              alt="Solmag.ai Logo"
+              width={40}
+              height={40}
+              className="h-10 w-10"
+            />
+            <span className="text-2xl font-bold font-montserrat">Solmag.ai</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
             <TrackedLink
@@ -84,7 +90,7 @@ export default function LandingPage() {
         </div>
       </header>
 
-      <main>
+      <main className="font-montserrat">
         {/* Hero Section - Enhanced with gradient elements and pattern bg */}
         <section className="relative overflow-hidden py-20 md:py-32">
           {/* Background pattern/gradient similar to GitHub Copilot */}
@@ -99,9 +105,9 @@ export default function LandingPage() {
                 <span>Currently in private beta</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Train your coding{" "}
+                Train your AI skills with{" "}
                 <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-blue-400">
-                  muscles with AI
+                  Solmag.ai
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-xl">
@@ -211,7 +217,7 @@ export default function LandingPage() {
                 description="Get insights into your learning journey with detailed metrics and indicators."
               />
               <FeatureCard
-                icon={<Zap className="h-6 w-6 text-primary" />}
+                icon={<LineChart className="h-6 w-6 text-primary" />}
                 title="Knowledge Management"
                 description="Access a centralized system for managing your notes, flashcards, algorithms, and chat history."
               />
@@ -398,8 +404,14 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
             <div className="col-span-2 lg:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <Zap className="h-6 w-6 text-primary" />
-                <span className="text-xl font-bold">MuscleCode.io</span>
+                <Image
+                  src="/logo.svg"
+                  alt="Solmag.ai Logo"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6"
+                />
+                <span className="text-xl font-bold font-montserrat">Solmag.ai</span>
               </div>
               <p className="text-muted-foreground mb-4 max-w-xs">
                 The AI-powered learning platform for software developers who
@@ -517,7 +529,7 @@ export default function LandingPage() {
           </div>
 
           <div className="pt-8 mt-8 border-t text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} MuscleCode.io. All rights reserved.
+            © {new Date().getFullYear()} Solmag.ai. All rights reserved.
           </div>
         </div>
       </footer>

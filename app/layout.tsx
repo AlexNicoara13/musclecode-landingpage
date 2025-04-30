@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "../styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CookieConsentBanner } from "@/components/cookie-consent";
@@ -14,6 +14,11 @@ import {
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
 });
 
 export const viewport: Viewport = {
@@ -96,8 +101,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
-      <body className="antialiased">
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`} suppressHydrationWarning>
+      <body className="antialiased font-montserrat">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
